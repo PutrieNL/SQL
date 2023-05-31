@@ -14,10 +14,19 @@ INSERT INTO PUTRIE_STORE VALUES (12,"STATIONARY",1,1,5);
 INSERT INTO PUTRIE_STORE VALUES (13,"ICE CREAM",20,5,6);
 INSERT INTO PUTRIE_STORE VALUES (14,"BREAD",20,2,6);
 INSERT INTO PUTRIE_STORE VALUES (15,"CHESE",10,4,6);
-SELECT*FROM PUTRIE_STORE;
 
---display the database order by prices
-SELECT*FROM PUTRIE_STORE ORDER BY PRICES;
 
---which are the most to least expensive aisle group by aisle and order by prices and quantity addition
-SELECT aisle, sum (prices),sum(quantity), sum (prices+quantity) from PUTRIE_STORE GROUP BY aisle ORDER BY SUM(prices+quantity);
+-- display the database ordered by aisle.
+SELECT*FROM PUTRIE_STORE ORDER BY AISLE;
+
+--the average prices of products in aisle 4.
+SELECT AVG (PRICES) "AVG PRICES IN AISLE 4"
+FROM PUTRIE_STORE
+WHERE AISLE="4";
+
+--the top 3 most kept products in the store.
+SELECT NAME,QUANTITY
+FROM PUTRIE_STORE
+ORDER BY QUANTITY DESC
+LIMIT 3;
+
