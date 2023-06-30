@@ -1,0 +1,54 @@
+# In this top 50 most listened songs in 2021 , I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+# CREATE THE TABLE
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL.
+
+# The average tempo on top 20 most easiest songs to dance.
+SELECT sum(tempo)/count(id)
+FROM BIT_DB.Spotifydata
+WHERE Danceability > 0.745;
+
+# The acousticness on top 20 most liveness songs.
+SELECT track_name,artist_name, liveness, acousticness
+FROM BIT_DB.Spotifydata
+ORDER BY liveness DESC
+LIMIT 20;
+
+# The instrumentalness on top 20 most popular songs.
+SELECT track_name,artist_name, popularity, instrumentalness
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 20;
+
+# Top 10 most listened songs in 2021 on Spotify.
+SELECT track_name,artist_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10;
+
+
+
