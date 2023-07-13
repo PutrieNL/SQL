@@ -1,0 +1,19 @@
+create table FAVEAPP (id INTEGER,
+                      name TEXT,
+                      data INTEGER);
+                      
+INSERT INTO FAVEAPP (id,name,data) VALUES (1,"TIKTOK",10);
+INSERT INTO FAVEAPP (id,name,data) VALUES (2,"Twitter",8);
+INSERT INTO FAVEAPP (id,name,data) VALUES (3,"IG",7);
+INSERT INTO FAVEAPP (id,name,data) VALUES (4,"PINTEREST",2);
+INSERT INTO FAVEAPP (id,name,data) VALUES (5,"TUMBLR",2);
+
+SELECT*FROM FAVEAPP;
+
+UPDATE FAVEAPP SET DATA = 1
+WHERE id=5;
+select * from FAVEAPP;
+
+DELETE FROM FAVEAPP 
+WHERE data= 1;
+select*from FAVEAPP;
