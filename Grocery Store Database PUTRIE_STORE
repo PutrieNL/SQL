@@ -24,7 +24,7 @@ SELECT AVG (PRICES) "AVG PRICES IN AISLE 4"
 FROM PUTRIE_STORE
 WHERE AISLE="4";
 
---the top 3 most kept products in the store.
+--the top 3 largest quantity products in the store.
 SELECT NAME,QUANTITY
 FROM PUTRIE_STORE
 ORDER BY QUANTITY DESC
