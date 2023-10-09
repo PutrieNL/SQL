@@ -1,0 +1,38 @@
+how many industry in 500 fortune companies
+select count(distinct industry) from fortune_companies;
+
+total employee in fortune 500 companies
+select sum (employees) from fortune_companies;
+
+company that has longest average employe tenure
+select company_name, max(avg_employee_tenure)
+from fortune_companies;
+
+company that has the least paid time off days
+select company_name, min(paid_time_off_days)
+from fortune_companies;
+
+companies where paid time off more than 15 weeks and maternity leave more tahn 12 weeks.
+select * from fortune_companies
+where paid_time_off_days > 15
+and maternity_leave_weeks > 12;
+
+which Companies in tech or has at least 300b revenue
+select *from fortune_companies
+where industry = "Technology"
+or revenue >= 300;
+
+which company follow the laws.
+select company_name, industry, maternity_leave_weeks,
+case 
+when maternity_leave_weeks >= 13 then "great"
+when maternity_leave_weeks =12 then "legal"
+else "iilegal"
+end as "legallity"
+from fortune_companies;
+
+which company has average employee tenure at least 5 years.
+select company_name, avg_employee_tenure
+from fortune_companies
+group by company_name
+having avg_employee_tenure >= 5;
